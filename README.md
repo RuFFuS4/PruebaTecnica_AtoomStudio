@@ -41,6 +41,7 @@ Incluye en la raíz del proyecto un archivo README.md con las instrucciones para
 
 ## A tener en cuenta
 
+* Si tienes problemas para crear el comando de consola, simplemente crea 2 rutas distintas que hagan lo mismo, cualquier operacion con la base de datos.
 * La página con el listado de entidades y el detalle de entidad debe usar la forma clásica de Modelo Vista Controlador, es decir, la vista debe renderizar un (o varios) archivo TWIG. No uses la API para renderizar el contenido con React o similar.
 * Si te bloqueas en algún aspecto, salta esa parte y sigue con lo demás. Seguro que puedes aprovechar ese tiempo mostrando tus habilidades en otro aspecto.
 * Los bundles propuestos los usamos en nuestros proyectos, nos interesa ver si los conoces y cómo los usas. Si no los conoces y/o te dan problemas, usa otro bundle que conozcas (¡quizás nos convences para cambiar nuestro stack!), programa tu la misma funcionalidad o salta esa parte.
