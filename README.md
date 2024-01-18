@@ -27,6 +27,14 @@ Crea una ruta que haga exactamente lo mismo que el comando, sin ejecutar el coma
 
 Incluye en la raíz del proyecto un archivo README.md con las instrucciones para ejecutar el proyecto en local y añadiendo cualquier explicación que creas necesaria para la persona que va a valorar la prueba.
 
+### Control de versiones
+
+Haz un commit cuando empieces, por ejemplo justo despues de crear el proyecto Symfony, y ves haciendo commits a medida que añadas funcionalidades.
+
+### Frontend
+
+**<ins>No</ins>** es un requerimiento para la vacante pero si tienes conocimientos de CSS/JS, aprovecha para dejar alguna muestra en el código.
+
 ## Ejemplo de prueba completada
 
 * Creo la entidad Restaurant con los atributos title, body, website y rating
@@ -46,18 +54,18 @@ Incluye en la raíz del proyecto un archivo README.md con las instrucciones para
 * Si te bloqueas en algún aspecto, salta esa parte y sigue con lo demás. Seguro que puedes aprovechar ese tiempo mostrando tus habilidades en otro aspecto.
 * Los bundles propuestos los usamos en nuestros proyectos, nos interesa ver si los conoces y cómo los usas. Si no los conoces y/o te dan problemas, usa otro bundle que conozcas (¡quizás nos convences para cambiar nuestro stack!), programa tu la misma funcionalidad o salta esa parte.
 * Sube el código en un proyecto público en tu cuenta de GitHub
+* Dedícale el tiempo que quieras pero recuerda hacer commits mientras desarrollas, así todos los participantes estaréis en igualdad de condiciones, tanto el que le dedica 2 horas como el que le dedica 6. Si bien cuantas mas funcionalidades añadas, mas información tendremos para valorar, lo que mas tendremos en cuenta es el trabajo hecho durante el tiempo medio de todos los participantes.
 
 ## Se valorará
 
-* El uso de GIT (¡ves haciendo commits a medida que desarrolles funcionalidades!)
+* El uso de GIT.
 * El uso de los bundles especificados o soluciones alternativas
 * El uso de elementos comunes de Symfony como controladores, comandos, entidades y servicios.
 * La capacidad de explicar el trabajo realizado tanto en la documentación como en la entrevista posterior
 
 ## Si te sobra tiempo
 
-* HTML/CSS/JS: lúcete en el frontend
-* Gestionar el contenido en multiples idiomas (solemos usar https://github.com/KnpLabs/DoctrineBehaviors/)
+* HTML/CSS/JS
 * Añade tests
 * Añade un formulario de contacto
 * Configura un entorno de desarrollo con Docker, Lando o similar
