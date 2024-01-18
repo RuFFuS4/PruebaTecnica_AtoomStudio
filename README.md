@@ -15,7 +15,7 @@ Este portal deberá poder gestionar entidades a través de un área de administr
 
 ### Comandos y controladores
 
-Crea un comando de consola que haga cualquier operación con la base de datos, por ejemplo:
+[Crea un comando de consola](https://symfony.com/doc/current/console.html#creating-a-command) que haga cualquier operación con la base de datos, por ejemplo:
 
 * Contar todas las entidades
 * Mostrar todos los nombres de restaurantes seperados por comas
