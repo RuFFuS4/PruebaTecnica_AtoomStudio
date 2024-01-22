@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Detalle del Restaurante{% endblock %}
+
+{% block body %}
+<div class="restaurant-detail">
+    <div class="restaurant-image">
+        {# Verificar si id_image está definido #}
+        {% if id_image is not null %}
+            <img src="{{ asset('images/restaurants/r' ~ id_image ~ '.png') }}" alt="Imagen del Restaurante">
+        {% else %}
+            {# Muestra una imagen por defecto o nada #}
+            <img src="{{ asset('images/restaurants/rDefault.png') }}" alt="Imagen por defecto">
+        {% endif %}
+    </div>
+    <div class="restaurant-info">
+        <h1>{{ restaurant.title }}</h1>
+        <p>{{ restaurant.description }}</p>
+        <div class="restaurant-meta">
+            {% for i in 1..restaurant.rating|round %}
+                <i class="rating fa fa-star"></i>
+            {% endfor %}
+        </div>
+        
+         {% if restaurant.website is not empty %}
+            <a href="{{(restaurant.website starts with 'http://' or restaurant.website starts with 'https://') ? restaurant.website : 'http://' ~ restaurant.website}}" target="_blank" rel="noopener noreferrer">{{ restaurant.website }}</a>
+        {% else %}
+            <a href="#" class="no-web">Sin web</a>
+        {% endif %}
+        
+        <div class="back-to-list">
+            <a href="{{ path('restaurant_index') }}" class="btn-back"><i>Volver</i></a>
+        </div>
+    </div>
+</div>
+{% endblock %}

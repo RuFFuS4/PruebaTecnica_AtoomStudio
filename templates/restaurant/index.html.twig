@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Lista de Restaurantes{% endblock %}
+
+
+{% block body %}
+<div class = "content">
+    {% for restaurant in restaurants %}
+        <div class = "area">
+            {% set randomImageNumber = random(1, 15) %}
+            <div class = "card">
+                <button class = "favorit"><i class = "fa fa-heart"></i></button>
+                <img src = "{{ asset('images/restaurants/r' ~ randomImageNumber ~ '.png') }}" class="img"/>
+                <div class = "card-detail">
+                    <h3><a href="{{ path('restaurant_show', {'id': restaurant.id,'id_image':randomImageNumber}) }}">{{ restaurant.title }}</a></h3>
+                    <p>
+                        {{ restaurant.description }}
+                    </p>
+                    <div class = "web">
+                        {% if restaurant.website is not empty %}
+                            <a href="{{(restaurant.website starts with 'http://' or restaurant.website starts with 'https://') ? restaurant.website : 'http://' ~ restaurant.website}}" target="_blank" rel="noopener noreferrer">{{ restaurant.website }}</a>
+                        {% else %}
+                            <a href="#" class="no-web">Sin web</a>
+                        {% endif %}
+                    </div>
+                    <div class = "detail">
+                        <i class = "fa fa-star"></i> <span>{{ restaurant.rating }}</span> <i class = "fa fa-clock-o"></i> <span>{{ random(10,50) }} m</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+
+{% endblock %}
