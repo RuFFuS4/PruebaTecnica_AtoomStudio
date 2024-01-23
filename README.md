@@ -1,73 +1,92 @@
-# Prueba técnica para la vacante de desarrollador PHP - 12/2023
+# Sistema de Gestión de Restaurantes
 
-## Descripción de la prueba
+## Descripción
 
-Crea un portal Symfony que contenga la entidad `Restaurant`. No importa los atributos que tenga la entidad, mantenlo simple puesto que esta prueba deberia realizarse en menos de 2 horas. Puedes usar otro elemento para la entidad como `Book`, `Employee` o lo que quieras.
+Este proyecto es un sistema de gestión de restaurantes desarrollado en Symfony, que permite a los usuarios ver información sobre diferentes restaurantes, gestionarlos a través de una interfaz de administrador y acceder a los datos a través de una API REST.
 
-### Gestión y exhibición de entidades
+## Características
 
-Estas entidades deberán mostrarse en 2 formatos:
+- Listado de restaurantes
+- Detalles del restaurante
+- API REST para restaurantes
+- Área de administración para gestionar restaurantes
+- Comando para exportar nombres de restaurantes a un archivo TXT
 
-* **HTML**: Una URL que liste las entidades y una URL con la vista de detalle de una entidad. Por ejemplo `/restaurants` y `/restaurant/{id}`
-* **JSON**: Haz accesibles las entidades en formato API REST en la URL `/api`. Por ejemplo `GET /api/restaurants` para obtener los restaurantes, `POST /api/restaurants` para añadir restaurantes, etc. Házlo como quieras pero en el estudio usamos [API Platform](https://api-platform.com/docs/core/getting-started/), ya que nos genera todas las rutas automáticamente. Si lo haces a mano, considera mantenerlo simple, por ejemplo haciendo sólo la ruta `GET` para no perder demasiado tiempo en este punto.
+## Tecnologías Utilizadas
 
-Este portal deberá poder gestionar entidades a través de un área de administrador. Igual que en el punto de la API, te recomendamos el uso de [Sonata Admin Bundle](https://symfony.com/bundles/SonataAdminBundle/current/index.html) o [Easy Admin Bundle](https://symfony.com/bundles/EasyAdminBundle/4.x/index.html). No es necesario que el área de administrador esté protegida tras un login ni que haya ningún sistema de gestión de usuarios y roles.
+![Symfony](https://img.shields.io/badge/symfony-%23000000.svg?style=for-the-badge&logo=symfony&logoColor=white)
+![PHP](https://img.shields.io/badge/php-%23777BB4.svg?style=for-the-badge&logo=php&logoColor=white)
+![MySQL](https://img.shields.io/badge/mysql-%2300f.svg?style=for-the-badge&logo=mysql&logoColor=white)
+- API Platform / EasyAdmin
+- MakerBundle / FixtureBundle
 
-### Comandos y controladores
+## Instalación y Configuración
 
-[Crea un comando de consola](https://symfony.com/doc/current/console.html#creating-a-command) que haga cualquier operación con la base de datos, por ejemplo:
+Instrucciones paso a paso para poner en funcionamiento el proyecto:
 
-* Contar todas las entidades
-* Mostrar todos los nombres de restaurantes seperados por comas
-* Cualquier otra cosa que se te ocurra, no tiene que ser compleja
+### Requisitos Previos
 
-Crea una ruta que haga exactamente lo mismo que el comando, sin ejecutar el comando en sí.
+- PHP 8.0+
+- Symfony
+- Composer
+- MySQL o similar
 
-### Documentación
+### Pasos de Instalación
 
-Incluye en la raíz del proyecto un archivo README.md con las instrucciones para ejecutar el proyecto en local y añadiendo cualquier explicación que creas necesaria para la persona que va a valorar la prueba.
+1. Clonar el repositorio:
 
-### Control de versiones
+[![Android](https://img.shields.io/github/stars/RuFFuS4/PruebaTecnica_AtoomStudio?label=Prueba%20Técnica%20Atoom%20Studio&style=social)](https://github.com/RuFFuS4/PruebaTecnica_AtoomStudio)
 
-Haz un commit cuando empieces, por ejemplo justo despues de crear el proyecto Symfony, y ves haciendo commits a medida que añadas funcionalidades.
+```shell
+git clone https://github.com/RuFFuS4/PruebaTecnica_AtoomStudio.git
+```
 
-### Frontend
+2. Instalar dependencias:
 
-**<ins>No</ins>** es un requerimiento para la vacante pero si tienes conocimientos de CSS/JS, aprovecha para dejar alguna muestra en el código.
+```shell
+composer install
+```
 
-## Ejemplo de prueba completada
+3. Configurar la base de datos en `.env` y ejecutar migraciones:
 
-* Creo la entidad Restaurant con los atributos title, body, website y rating
-* Creo un área de administración para añadir / modificar / eliminar restaurantes
-* Muestro el listado de restaurantes en la home, con enlaces en el título
-* Los enlaces del título van a `/restaurant/{id}`, donde se muestra toda la información del restaurante.
-* La ruta GET `/api/restaurants` muestra los restaurantes en formato JSON
-* La ruta GET `/api/restaurant/{id}` muestra un único restaurante en formato JSON
-* El comando de consola `php bin/console app:restaurants:export` guarda los títulos de los restaurantes en un archivo TXT
-* La ruta `/resturants/export` hace lo mismo que el comando `app:restaurants:export`
-* Documento la prueba en el archivo README.md
+```yml
+DATABASE_URL="mysql://user:password@host:port/database_name?serverVersion=8.0.32&charset=utf8mb4"
+```
 
-## A tener en cuenta
+```shell
+symfony console make:migration
 
-* Si tienes problemas para crear el comando de consola, simplemente crea 2 rutas distintas que hagan lo mismo, cualquier operacion con la base de datos.
-* La página con el listado de entidades y el detalle de entidad debe usar la forma clásica de Modelo Vista Controlador, es decir, la vista debe renderizar un (o varios) archivo TWIG. No uses la API para renderizar el contenido con React o similar.
-* Si te bloqueas en algún aspecto, salta esa parte y sigue con lo demás. Seguro que puedes aprovechar ese tiempo mostrando tus habilidades en otro aspecto.
-* Los bundles propuestos los usamos en nuestros proyectos, nos interesa ver si los conoces y cómo los usas. Si no los conoces y/o te dan problemas, usa otro bundle que conozcas (¡quizás nos convences para cambiar nuestro stack!), programa tu la misma funcionalidad o salta esa parte.
-* Sube el código en un proyecto público en tu cuenta de GitHub
-* Dedícale el tiempo que quieras pero recuerda hacer commits mientras desarrollas, así todos los participantes estaréis en igualdad de condiciones, tanto el que le dedica 2 horas como el que le dedica 6. Si bien cuantas mas funcionalidades añadas, mas información tendremos para valorar, lo que mas tendremos en cuenta es el trabajo hecho durante el tiempo medio de todos los participantes.
+php bin/console doctrine:migrations:migrate
+```
 
-## Se valorará
+4. (Opcional) Cargar datos de prueba:
 
-* El uso de GIT.
-* El uso de los bundles especificados o soluciones alternativas
-* El uso de elementos comunes de Symfony como controladores, comandos, entidades y servicios.
-* La capacidad de explicar el trabajo realizado tanto en la documentación como en la entrevista posterior
+```shell
+php bin/console doctrine:fixtures:load
+```
 
-## Si te sobra tiempo
+## Uso
 
-* HTML/CSS/JS
-* Añade tests
-* Añade un formulario de contacto
-* Configura un entorno de desarrollo con Docker, Lando o similar
-* ¿Hay algo que se te de especialmente bien pero no te lo estamos pidiendo? ¡Añádelo aunque no encaje!
+- Para iniciar el servidor local:
 
+```shell
+symfony server:start
+```
+
+- Acceder a [`http://localhost:8000/`](http://localhost:8000/) en el navegador.
+
+- Para acceder a la zona de administración, dirijase a la ruta [`http://localhost:8000/admin`](http://localhost:8000/admin)
+
+- Para poder hacer uso de la API REST, dirijase a la ruta [`http://localhost:8000/api`](http://localhost:8000/api)
+
+- Para realizar la exportación de restaurantes:
+
+[`http://localhost:8000/restaurants/export`](http://localhost:8000/restaurants/export)
+
+```shell
+php bin/console app:restaurants:export
+```
+
+---
+
+Documento creado por Rafael Gómez Rubio.
