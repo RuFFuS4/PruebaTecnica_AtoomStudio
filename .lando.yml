@@ -2,10 +2,10 @@ name: prueba-tecnica-atoom-studio
 recipe: lamp
 config:
   webroot: public
-  php: '8.0'
+  php: '8.2'
 services:
   appserver:
-    type: php:8.0
+    type: php:8.2
     via: apache
     webroot: public
     ssl: true
