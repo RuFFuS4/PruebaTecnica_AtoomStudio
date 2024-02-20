@@ -1,0 +1,30 @@
+name: prueba-tecnica-atoom-studio
+recipe: lamp
+config:
+  webroot: public
+  php: '8.0'
+services:
+  appserver:
+    type: php:8.0
+    via: apache
+    webroot: public
+    ssl: true
+    xdebug: true
+    composer_version: latest
+  database:
+    type: mysql:5.7
+    portforward: true
+    creds:
+      user: root
+      password: root
+      database: atoomprueba
+tooling:
+  php:
+    service: appserver
+  mysql:
+    service: database
+  composer:
+    service: appserver
+  symfony:
+    service: appserver
+    cmd: php bin/console
